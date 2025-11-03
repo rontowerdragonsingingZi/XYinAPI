@@ -1,0 +1,1 @@
+import{_ as a,c as i,o as t,a3 as n}from"./chunks/framework.tjMIy6BL.js";const E=JSON.parse('{"title":"基础信息","description":"","frontmatter":{},"headers":[],"relativePath":"api/basic.md","filePath":"api/basic.md"}'),l={name:"api/basic.md"};function e(h,s,p,o,r,k){return t(),i("div",null,[...s[0]||(s[0]=[n("",50)])])}const c=a(l,[["render",e]]);export{E as __pageData,c as default};

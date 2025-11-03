@@ -1,0 +1,22 @@
+{
+  "name": "vitepress",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs",
+    "docs:deploy": "npm run docs:build && sudo supervisorctl restart vitepress-docs && echo '✅ 热更新完成！'",
+    "docs:status": "sudo supervisorctl status vitepress-docs",
+    "docs:logs": "sudo supervisorctl tail vitepress-docs",
+    "docs:quick": "npm run docs:build && sudo fuser -k 5175/tcp 2>/dev/null || true && sudo supervisorctl restart vitepress-docs && sleep 5 && curl -s http://127.0.0.1:5175/ | head -1 | grep -q 'DOCTYPE' && echo '✅ 构建成功！Live2D模型已集成' && echo '🚀 访问地址: https://vitepress.xyin.online' || echo '⚠️ 服务启动中，请稍后访问'"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "vitepress": "^1.6.4"
+  }
+}
