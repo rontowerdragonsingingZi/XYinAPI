@@ -1,7 +1,6 @@
 import DefaultTheme from 'vitepress/theme'
 import './custom.css'
 import DocumentAnimation from './DocumentAnimation.vue'
-import ApiKeyPage from './ApiKeyPage.vue'
 import AdRedirect from './AdRedirect.vue'
 import HomeAdBanner from './HomeAdBanner.vue'
 
@@ -10,7 +9,6 @@ export default {
   enhanceApp({ app, router, siteData }) {
     // 注册全局组件
     app.component('DocumentAnimation', DocumentAnimation)
-    app.component('ApiKeyPage', ApiKeyPage)
     app.component('AdRedirect', AdRedirect)
     app.component('HomeAdBanner', HomeAdBanner)
     if (typeof window !== 'undefined') {
