@@ -3,6 +3,25 @@ export default {
   sitemap: {
     hostname: 'https://vitepress.xyin.online'
   },
+  transformHead: ({ pageData }) => {
+    const head = []
+    const canonicalUrl = `https://vitepress.xyin.online${pageData.relativePath.replace(/\.md$/, '')}`
+    
+    head.push(['link', { rel: 'canonical', href: canonicalUrl }])
+    
+    if (pageData.frontmatter.description) {
+      head.push(['meta', { name: 'description', content: pageData.frontmatter.description }])
+      head.push(['meta', { property: 'og:description', content: pageData.frontmatter.description }])
+    }
+    
+    if (pageData.frontmatter.title) {
+      head.push(['meta', { property: 'og:title', content: pageData.frontmatter.title }])
+    }
+    
+    head.push(['meta', { property: 'og:url', content: canonicalUrl }])
+    
+    return head
+  },
   head: [
     ['link', { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/images/logo.png' }],
     ['link', { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/images/logo.png' }],

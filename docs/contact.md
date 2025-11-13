@@ -4,86 +4,103 @@
   <p>欢迎联系 XYinAPI 团队！我们提供多种联系方式，您可以选择最方便的方式与我们沟通。</p>
 </div>
 
-## <span class="section-title"><svg class="section-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12.002 2.005c5.518 0 9.998 4.48 9.998 9.997 0 5.518-4.48 9.998-9.998 9.998-5.517 0-9.997-4.48-9.997-9.998 0-5.517 4.48-9.997 9.997-9.997zm0 1.5c-4.69 0-8.497 3.808-8.497 8.497s3.807 8.498 8.497 8.498 8.498-3.808 8.498-8.498-3.808-8.497-8.498-8.497zm-3.5 7.5h2v2h-2v-2zm3.5 0h2v2h-2v-2zm3.5 0h2v2h-2v-2z"/></svg> QQ 联系</span>
+## 联系方式
 
-<div class="contact-grid">
+<div class="contact-grid-horizontal">
   <div class="contact-card">
     <div class="card-icon qq-icon">
-      <svg viewBox="0 0 24 24" fill="currentColor">
-        <path d="M12 2C6.477 2 2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.879V14.89h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.989C18.343 21.129 22 16.99 22 12c0-5.523-4.477-10-10-10z"/>
-      </svg>
+      <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/tencentqq.svg" alt="QQ" />
     </div>
-    <h3>QQ 好友</h3>
-    <div class="qr-code">
-      <img src="/images/qq.png" alt="QQ联系方式" />
+    <div class="card-content">
+      <h3>QQ 好友</h3>
+      <p class="group-number">ID：<strong>1330141297</strong></p>
+      <p class="description">添加 QQ 好友获取技术支持</p>
     </div>
-    <p class="description">扫码添加 QQ 好友获取技术支持</p>
   </div>
-  
+
   <div class="contact-card">
     <div class="card-icon qq-icon">
-      <svg viewBox="0 0 24 24" fill="currentColor">
-        <path d="M12 2C6.477 2 2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.879V14.89h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.989C18.343 21.129 22 16.99 22 12c0-5.523-4.477-10-10-10z"/>
-      </svg>
+      <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/tencentqq.svg" alt="QQ" />
     </div>
-    <h3>QQ 群组</h3>
-    <div class="qr-code">
-      <img src="/images/qq群.png" alt="QQ群" />
+    <div class="card-content">
+      <h3>QQ 群组</h3>
+      <p class="group-number">群号：<strong>792307397</strong></p>
+      <p class="description">加入 QQ 群与其他用户交流</p>
     </div>
-    <p class="group-number">群号：<strong>792307397</strong></p>
-    <p class="description">加入 QQ 群与其他用户交流</p>
   </div>
-</div>
 
-## <span class="section-title"><svg class="section-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M8.691 2.188C7.82 2.188 7.12 2.89 7.12 3.76v16.48c0 .87.7 1.572 1.571 1.572h6.618c.871 0 1.571-.701 1.571-1.572V3.76c0-.87-.7-1.572-1.571-1.572H8.691zm.64 1.098h5.34c.195 0 .348.153.348.348v13.534c0 .195-.153.349-.348.349H9.33c-.196 0-.349-.154-.349-.349V3.634c0-.195.153-.348.349-.348z"/></svg> 微信联系</span>
-
-<div class="contact-grid single-card">
-  <div class="contact-card featured">
+  <div class="contact-card">
     <div class="card-icon wechat-icon">
-      <svg viewBox="0 0 24 24" fill="currentColor">
-        <path d="M8.691 2.188C7.82 2.188 7.12 2.89 7.12 3.76v16.48c0 .87.7 1.572 1.571 1.572h6.618c.871 0 1.571-.701 1.571-1.572V3.76c0-.87-.7-1.572-1.571-1.572H8.691zm.64 1.098h5.34c.195 0 .348.153.348.348v13.534c0 .195-.153.349-.348.349H9.33c-.196 0-.349-.154-.349-.349V3.634c0-.195.153-.348.349-.348z"/>
-      </svg>
+      <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/wechat.svg" alt="微信" />
     </div>
-    <h3>微信号</h3>
-    <div class="qr-code">
-      <img src="/images/微信联系.png" alt="微信联系" />
+    <div class="card-content">
+      <h3>微信号</h3>
+      <p class="wechat-id">微信：<strong>XYin20030731</strong></p>
+      <p class="description">添加微信好友</p>
     </div>
-    <p class="wechat-id">微信：<strong>XYin20030731</strong></p>
-    <p class="description">扫码添加微信好友</p>
+  </div>
+
+  <div class="contact-card">
+    <div class="card-icon gmail-icon">
+      <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/gmail.svg" alt="Gmail" />
+    </div>
+    <div class="card-content">
+      <h3>Gmail 邮箱</h3>
+      <p class="email-text"><strong>yb8495812@gmail.com</strong></p>
+      <p class="description">通过 Gmail 联系我们</p>
+    </div>
+  </div>
+
+  <div class="contact-card">
+    <div class="card-icon qqmail-icon">
+      <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/tencentqq.svg" alt="QQ邮箱" />
+    </div>
+    <div class="card-content">
+      <h3>QQ 邮箱</h3>
+      <p class="email-text"><strong>yabo2003@qq.com</strong></p>
+      <p class="description">通过 QQ 邮箱联系我们</p>
+    </div>
+  </div>
+
+  <div class="contact-card">
+    <div class="card-icon telegram-icon">
+      <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/telegram.svg" alt="Telegram" />
+    </div>
+    <div class="card-content">
+      <h3>Telegram</h3>
+      <p class="telegram-text"><strong>@MahoSys</strong></p>
+      <p class="description">通过 Telegram 联系我们</p>
+    </div>
   </div>
 </div>
 
-## <span class="section-title"><svg class="section-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 支持我们</span>
+## 赞赏支持
 
 <div class="support-intro">
-  <p>如果您觉得我们的服务对您有帮助，欢迎支持我们的项目！</p>
+  <p>如果您觉得我们的服务对您有帮助，欢迎通过以下方式支持我们！</p>
 </div>
 
-<div class="contact-grid">
-  <div class="contact-card support">
+<div class="contact-grid-horizontal">
+  <div class="contact-card payment-card">
     <div class="card-icon wechat-icon">
-      <svg viewBox="0 0 24 24" fill="currentColor">
-        <path d="M8.691 2.188C7.82 2.188 7.12 2.89 7.12 3.76v16.48c0 .87.7 1.572 1.571 1.572h6.618c.871 0 1.571-.701 1.571-1.572V3.76c0-.87-.7-1.572-1.571-1.572H8.691z"/>
-      </svg>
+      <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/wechat.svg" alt="微信" />
     </div>
     <h3>微信赞赏</h3>
-    <div class="qr-code">
+    <div class="payment-qr">
       <img src="/images/微信收款.jpg" alt="微信收款码" />
     </div>
-    <p class="description">微信扫码赞赏</p>
+    <p class="description">扫码微信赞赏</p>
   </div>
-  
-  <div class="contact-card support">
+
+  <div class="contact-card payment-card">
     <div class="card-icon alipay-icon">
-      <svg viewBox="0 0 24 24" fill="currentColor">
-        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.31-8.86c-1.77-.45-2.34-.94-2.34-1.67 0-.84.79-1.43 2.1-1.43 1.38 0 1.9.66 1.94 1.64h1.71c-.05-1.34-.87-2.57-2.49-2.97V5H10.9v1.69c-1.51.32-2.72 1.3-2.72 2.81 0 1.79 1.49 2.69 3.66 3.21 1.95.46 2.34 1.15 2.34 1.87 0 .53-.39 1.39-2.1 1.39-1.6 0-2.23-.72-2.32-1.64H8.04c.1 1.7 1.36 2.66 2.86 2.97V19h2.34v-1.67c1.52-.29 2.72-1.16 2.73-2.77-.01-2.2-1.9-2.96-3.66-3.42z"/>
-      </svg>
+      <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/alipay.svg" alt="支付宝" />
     </div>
     <h3>支付宝赞赏</h3>
-    <div class="qr-code">
+    <div class="payment-qr">
       <img src="/images/支付宝收款.jpg" alt="支付宝收款码" />
     </div>
-    <p class="description">支付宝扫码赞赏</p>
+    <p class="description">扫码支付宝赞赏</p>
   </div>
 </div>
 
@@ -117,32 +134,37 @@
   color: var(--vp-c-brand-1);
 }
 
-.contact-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 2rem;
+.contact-grid-horizontal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
   margin: 2.5rem 0;
-  justify-items: center;
-}
-
-.contact-grid.single-card {
-  grid-template-columns: 1fr;
-  max-width: 400px;
-  margin-left: auto;
-  margin-right: auto;
+  justify-content: center;
 }
 
 .contact-card {
   background: var(--vp-c-bg-soft);
   border: 2px solid var(--vp-c-divider);
   border-radius: 16px;
-  padding: 2rem;
-  text-align: center;
+  padding: 1.5rem 2rem;
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
-  width: 100%;
-  max-width: 380px;
+  flex: 1 1 100%;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  text-align: left;
+}
+
+.contact-card.payment-card {
+  flex: 0 1 calc(33.333% - 1.5rem);
+  min-width: 240px;
+  max-width: 300px;
+  flex-direction: column;
+  text-align: center;
+  gap: 0;
+  padding: 1.5rem;
 }
 
 .contact-card::before {
@@ -177,28 +199,49 @@
 }
 
 .card-icon {
-  margin-bottom: 1rem;
+  width: 80px;
+  height: 80px;
+  flex-shrink: 0;
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 50%;
+  background: var(--vp-c-bg);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-.card-icon svg {
-  width: 64px;
-  height: 64px;
+.contact-card.payment-card .card-icon {
+  margin: 0 auto 1.5rem;
+}
+
+.card-icon img {
+  width: 50px;
+  height: 50px;
   animation: float 3s ease-in-out infinite;
 }
 
-.qq-icon svg {
-  color: #12B7F5;
+.qq-icon img {
+  filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(180deg) brightness(118%) contrast(119%);
 }
 
-.wechat-icon svg {
-  color: #07C160;
+.wechat-icon img {
+  filter: invert(64%) sepia(88%) saturate(1739%) hue-rotate(85deg) brightness(95%) contrast(101%);
 }
 
-.alipay-icon svg {
-  color: #1677FF;
+.alipay-icon img {
+  filter: invert(47%) sepia(96%) saturate(1993%) hue-rotate(193deg) brightness(103%) contrast(101%);
+}
+
+.gmail-icon img {
+  filter: invert(27%) sepia(98%) saturate(7495%) hue-rotate(359deg) brightness(99%) contrast(118%);
+}
+
+.qqmail-icon img {
+  filter: invert(27%) sepia(98%) saturate(7495%) hue-rotate(359deg) brightness(99%) contrast(118%);
+}
+
+.telegram-icon img {
+  filter: invert(64%) sepia(59%) saturate(4498%) hue-rotate(175deg) brightness(97%) contrast(101%);
 }
 
 @keyframes float {
@@ -210,68 +253,104 @@
   }
 }
 
+.card-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.contact-card.payment-card .card-content {
+  flex: none;
+}
+
 .contact-card h3 {
-  margin: 1rem 0;
+  margin: 0 0 0.5rem 0;
   color: var(--vp-c-brand-1);
-  font-size: 1.4rem;
+  font-size: 1.25rem;
   font-weight: 600;
 }
 
-.qr-code {
+.group-number,
+.wechat-id,
+.email-text,
+.telegram-text {
+  margin: 0.25rem 0;
+  color: var(--vp-c-text-1);
+  font-size: 1rem;
+}
+
+.group-number strong,
+.wechat-id strong,
+.email-text strong,
+.telegram-text strong {
+  color: var(--vp-c-brand-1);
+  font-size: 1rem;
+  font-family: 'Courier New', monospace;
+}
+
+.description {
+  margin: 0.25rem 0 0 0;
+  color: var(--vp-c-text-2);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.payment-qr {
   margin: 1.5rem auto;
-  padding: 1rem;
+  padding: 0.75rem;
   background: white;
   border-radius: 12px;
   display: flex;
   justify-content: center;
   align-items: center;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  width: 220px;
-  height: 220px;
-}
-
-.qr-code img {
   width: 200px;
   height: 200px;
+}
+
+.payment-qr img {
+  width: 180px;
+  height: 180px;
   object-fit: contain;
   border-radius: 8px;
   display: block;
 }
 
-.group-number,
-.wechat-id {
-  margin: 1rem 0;
-  color: var(--vp-c-text-1);
-  font-size: 1.1rem;
+.support-intro {
+  text-align: center;
+  margin: 1rem 0 2rem 0;
 }
 
-.group-number strong,
-.wechat-id strong {
-  color: var(--vp-c-brand-1);
-  font-size: 1.2rem;
-  font-family: 'Courier New', monospace;
-}
-
-.description {
-  margin: 0.5rem 0 0 0;
+.support-intro p {
   color: var(--vp-c-text-2);
-  font-size: 0.95rem;
+  font-size: 1rem;
   line-height: 1.6;
 }
 
 @media (max-width: 768px) {
-  .contact-grid {
-    grid-template-columns: 1fr;
+  .contact-grid-horizontal {
+    flex-direction: column;
+    align-items: center;
   }
-  
-  .qr-code {
-    width: 200px;
-    height: 200px;
+
+  .contact-card {
+    flex: 1 1 100%;
+    max-width: 100%;
   }
-  
-  .qr-code img {
+
+  .contact-card.payment-card {
+    max-width: 100%;
+  }
+
+  .payment-qr {
     width: 180px;
     height: 180px;
+  }
+
+  .payment-qr img {
+    width: 160px;
+    height: 160px;
   }
 }
 </style>

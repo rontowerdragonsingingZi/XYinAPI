@@ -3,6 +3,7 @@ import './custom.css'
 import DocumentAnimation from './DocumentAnimation.vue'
 import AdRedirect from './AdRedirect.vue'
 import HomeAdBanner from './HomeAdBanner.vue'
+import ApiKeyGenerator from './ApiKeyGenerator.vue'
 
 export default {
   ...DefaultTheme,
@@ -11,6 +12,7 @@ export default {
     app.component('DocumentAnimation', DocumentAnimation)
     app.component('AdRedirect', AdRedirect)
     app.component('HomeAdBanner', HomeAdBanner)
+    app.component('ApiKeyGenerator', ApiKeyGenerator)
     if (typeof window !== 'undefined') {
       // 等待DOM和Live2D脚本都准备完成后初始化
       const initWhenReady = () => {
