@@ -6,7 +6,7 @@
 
 - **请求方式**: `POST`
 - **接口地址**: `/image/to-pdf`
-- **底层技术**: PyMuPDF
+- **Authorization Header**: API Key (JWT)
 
 ## 支持的图片格式
 
@@ -137,81 +137,7 @@ if __name__ == "__main__":
         print(f"转换完成: {multi_pdf}")
 ```
 
-#### 批量处理示例
-```python
-import os
-import glob
-from pathlib import Path
 
-def batch_images_to_pdf(input_dir, output_dir=None, group_by_folder=True):
-    """
-    批量将图片转换为 PDF
-    
-    Args:
-        input_dir: 输入图片目录
-        output_dir: 输出 PDF 目录
-        group_by_folder: 是否按子文件夹分组
-    """
-    
-    if not output_dir:
-        output_dir = os.path.join(input_dir, "pdf_output")
-    
-    os.makedirs(output_dir, exist_ok=True)
-    
-    # 支持的图片扩展名
-    image_extensions = ['*.png', '*.jpg', '*.jpeg', '*.bmp', '*.gif', '*.tiff', '*.tif']
-    
-    if group_by_folder:
-        # 按子文件夹分组处理
-        for root, dirs, files in os.walk(input_dir):
-            if root == input_dir:  # 跳过根目录
-                continue
-                
-            folder_name = os.path.basename(root)
-            image_files = []
-            
-            # 收集该文件夹下的所有图片
-            for ext in image_extensions:
-                image_files.extend(glob.glob(os.path.join(root, ext)))
-            
-            if image_files:
-                # 按文件名排序
-                image_files.sort()
-                
-                # 生成 PDF
-                output_pdf = os.path.join(output_dir, f"{folder_name}.pdf")
-                result = images_to_pdf(image_files, output_pdf)
-                
-                if result:
-                    print(f"✓ 文件夹 '{folder_name}': {len(image_files)} 张图片 → {output_pdf}")
-                else:
-                    print(f"✗ 文件夹 '{folder_name}': 转换失败")
-    else:
-        # 将所有图片合并为一个 PDF
-        all_images = []
-        for ext in image_extensions:
-            all_images.extend(glob.glob(os.path.join(input_dir, ext)))
-        
-        if all_images:
-            all_images.sort()
-            output_pdf = os.path.join(output_dir, "all_images.pdf")
-            result = images_to_pdf(all_images, output_pdf)
-            
-            if result:
-                print(f"✓ 所有图片: {len(all_images)} 张 → {output_pdf}")
-            else:
-                print("✗ 转换失败")
-        else:
-            print("未找到图片文件")
-
-# 使用示例
-if __name__ == "__main__":
-    # 按文件夹分组转换
-    batch_images_to_pdf("./photos", "./pdf_output", group_by_folder=True)
-    
-    # 所有图片合并为一个 PDF
-    batch_images_to_pdf("./all_photos", "./pdf_output", group_by_folder=False)
-```
 
 ### JavaScript 示例
 

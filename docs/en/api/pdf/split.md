@@ -6,7 +6,7 @@ Intelligently split a PDF document into specified number of parts with evenly di
 
 - **Method**: `POST`
 - **Endpoint**: `/pdf/split`
-- **Technology**: PyMuPDF
+- **Authorization Header**: API Key (JWT)
 
 ## Split Logic
 

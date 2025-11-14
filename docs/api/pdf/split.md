@@ -6,7 +6,7 @@
 
 - **请求方式**: `POST`
 - **接口地址**: `/pdf/split`
-- **底层技术**: PyMuPDF
+- **Authorization Header**: API Key (JWT)
 
 ## 拆分逻辑
 

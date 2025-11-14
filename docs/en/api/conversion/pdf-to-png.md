@@ -6,7 +6,7 @@ Convert each page of a PDF document into individual HD PNG image files.
 
 - **Method**: `POST`
 - **Endpoint**: `/pdf/to-png`
-- **Technology**: PyMuPDF
+- **Authorization Header**: API Key (JWT)
 
 ## Conversion Settings
 

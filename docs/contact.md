@@ -1,7 +1,8 @@
 # 联系我们
 
 <div class="contact-intro">
-  <p>欢迎联系 XYinAPI 团队！我们提供多种联系方式，您可以选择最方便的方式与我们沟通。</p>
+  <p>欢迎联系 XYinAPI 团队！我们提供多种联系方式，您可以选择最方便的方式与我们沟通，
+  升级您的API Key或者成为我们的会员，与我们进行商业交流或者技术合作。</p>
 </div>
 
 ## 联系方式
@@ -13,7 +14,7 @@
     </div>
     <div class="card-content">
       <h3>QQ 好友</h3>
-      <p class="group-number">ID：<strong>1330141297</strong></p>
+      <p class="group-number"><strong>1330141297</strong></p>
       <p class="description">添加 QQ 好友获取技术支持</p>
     </div>
   </div>
@@ -24,7 +25,7 @@
     </div>
     <div class="card-content">
       <h3>QQ 群组</h3>
-      <p class="group-number">群号：<strong>792307397</strong></p>
+      <p class="group-number"><strong>792307397</strong></p>
       <p class="description">加入 QQ 群与其他用户交流</p>
     </div>
   </div>
@@ -35,7 +36,7 @@
     </div>
     <div class="card-content">
       <h3>微信号</h3>
-      <p class="wechat-id">微信：<strong>XYin20030731</strong></p>
+      <p class="wechat-id"><strong>XYin20030731</strong></p>
       <p class="description">添加微信好友</p>
     </div>
   </div>
@@ -53,7 +54,7 @@
 
   <div class="contact-card">
     <div class="card-icon qqmail-icon">
-      <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/tencentqq.svg" alt="QQ邮箱" />
+        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/tencentqq.svg" alt="QQ" />
     </div>
     <div class="card-content">
       <h3>QQ 邮箱</h3>
@@ -234,6 +235,10 @@
 
 .gmail-icon img {
   filter: invert(27%) sepia(98%) saturate(7495%) hue-rotate(359deg) brightness(99%) contrast(118%);
+}
+
+.qqmail-icon svg {
+  color: #1E88E5;
 }
 
 .qqmail-icon img {

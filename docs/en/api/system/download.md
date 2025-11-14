@@ -6,6 +6,7 @@ Download converted or processed files from the server.
 
 - **Method**: `GET`
 - **Endpoint**: `/download/{filename}`
+- **Authorization Header**: API Key (JWT)
 - **Description**: Download file using the filename from conversion response
 
 ## Features

@@ -6,7 +6,7 @@ Add password protection to PDF files with support for various encryption algorit
 
 - **Method**: `POST`
 - **Endpoint**: `/pdf/encrypt`
-- **Technology**: PyMuPDF
+- **Authorization Header**: API Key (JWT)
 
 ## Encryption Features
 

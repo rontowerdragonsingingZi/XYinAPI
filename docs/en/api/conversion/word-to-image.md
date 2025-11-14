@@ -6,7 +6,7 @@ Convert Microsoft Word documents to high-quality PNG image format, generating on
 
 - **Method**: `POST`
 - **Endpoint**: `/word/to-image`
-- **Technology**: LibreOffice + PyMuPDF
+- **Authorization Header**: API Key (JWT)
 
 ## Conversion Process
 

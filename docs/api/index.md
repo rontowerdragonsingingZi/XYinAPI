@@ -1,6 +1,6 @@
 # API 文档
 
-LibreOffice Document Conversion API 是一个强大的文档转换服务，提供多种文档格式之间的转换功能。
+LibreOffice Document Conversion API 是一个完全免费的强大文档转换服务，提供多种文档格式之间的转换功能。
 
 ## 🌐 服务地址
 
@@ -10,37 +10,62 @@ LibreOffice Document Conversion API 是一个强大的文档转换服务，提�
 
 ## 📋 支持的转换类型
 
-| 转换类型 | 描述 | 底层技术 |
-|---------|------|---------|
-| **DOCX → PDF** | Word 文档转 PDF | LibreOffice |
-| **PDF → DOCX** | PDF 转 Word 文档 | pdf2docx |
-| **PDF → PNG** | PDF 转图片 | PyMuPDF |
-| **Word → 高清图片** | Word 转高质量图片 | LibreOffice + PyMuPDF |
-| **图片 → PDF** | 图片合成 PDF | PyMuPDF |
-| **PDF 页数识别** | 获取 PDF 页数信息 | PyMuPDF |
-| **PDF 拆分** | 将 PDF 拆分为多个文件 | PyMuPDF |
-| **PDF 合并** | 合并多个 PDF 文件 | PyMuPDF |
-| **PDF 文字提取** | 提取 PDF 中的文本 | PyMuPDF |
-| **PDF 加水印** | 为 PDF 添加水印 | PyMuPDF |
-| **PDF 去除空白页** | 自动识别并删除空白页 | PyMuPDF |
-| **PDF 加密** | 为 PDF 添加密码保护 | PyMuPDF |
-| **PDF 解密** | 解除 PDF 密码保护 | PyMuPDF |
+| 转换类型 | 描述 |
+|---------|------|
+| **DOCX → PDF** | Word 文档转 PDF |
+| **PDF → DOCX** | PDF 转 Word 文档 |
+| **PDF → PNG** | PDF 转图片 |
+| **Word → 高清图片** | Word 转高质量图片 |
+| **图片 → PDF** | 图片合成 PDF |
+| **PDF 页数识别** | 获取 PDF 页数信息 |
+| **PDF 拆分** | 将 PDF 拆分为多个文件 |
+| **PDF 合并** | 合并多个 PDF 文件 |
+| **PDF 文字提取** | 提取 PDF 中的文本 |
+| **PDF 加水印** | 为 PDF 添加水印 |
+| **PDF 去除空白页** | 自动识别并删除空白页 |
+| **PDF 加密** | 为 PDF 添加密码保护 |
+| **PDF 解密** | 解除 PDF 密码保护 |
 
 ## 🚀 快速开始
 
-### 1. 基础请求
+### 1. 身份认证
 
-所有文件上传请求都使用 `multipart/form-data` 格式：
+所有 API 请求都需要在 HTTP 请求头中添加 JWT（JSON Web Token）进行身份验证。
+
+**认证方式**：在 `Authorization` Header 中添加您的 API Key（JWT Token）
+
+```http
+Authorization: Bearer YOUR_API_KEY
+```
+
+::: tip 获取 API Key
+如果您还没有 API Key，请访问 [获取 API Key](/apikey) 页面免费申请。
+:::
+
+### 2. 基础请求
+
+所有文件上传请求都使用 `multipart/form-data` 格式，并且必须包含认证信息：
 
 ```http
 POST /convert
+Authorization: Bearer YOUR_API_KEY
 Content-Type: multipart/form-data
 
 file: [文件内容]
 output_format: pdf
 ```
 
-### 2. 响应格式
+**完整的 cURL 示例**：
+
+```bash
+curl -X POST "https://api.xyin.online/convert" \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: multipart/form-data" \
+  -F "file=@document.docx" \
+  -F "output_format=pdf"
+```
+
+### 3. 响应格式
 
 成功响应：
 ```json
@@ -64,7 +89,7 @@ output_format: pdf
 }
 ```
 
-### 3. 文件下载
+### 4. 文件下载
 
 使用返回的 `download_url` 下载转换后的文件：
 
@@ -101,7 +126,7 @@ curl -O https://api.xyin.online/download/document.pdf
 
 ## ⚡ 性能指标
 
-- **文件大小限制**: 最大 10MB
+- **文件大小限制**: 最大10MB
 - **并发处理**: 支持多用户同时使用
 - **处理速度**: 
   - 文档转换: &lt; 5 秒
@@ -121,9 +146,7 @@ curl -O https://api.xyin.online/download/document.pdf
 2. **文件大小**: 建议小于 10MB 以获得最佳性能
 3. **错误处理**: 始终检查响应中的 `success` 字段
 4. **及时下载**: 转换后的文件会定期清理
-5. **批量处理**: 对于大量文件，建议分批处理
 
 ## 🔗 相关链接
 
 - [错误码说明](/api/errors)
-- [在线测试工具](https://api.xyin.online/docs)

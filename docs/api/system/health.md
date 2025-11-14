@@ -6,6 +6,7 @@
 
 - **请求方式**: `GET`
 - **接口地址**: `/health`
+- **Authorization Header**: API Key (JWT)
 - **说明**: 无需参数的快速健康检查
 
 ## 请求示例

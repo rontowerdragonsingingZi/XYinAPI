@@ -6,7 +6,7 @@
 
 - **请求方式**: `POST`
 - **接口地址**: `/pdf/verify-password`
-- **底层技术**: PyMuPDF
+- **Authorization Header**: API Key (JWT)
 
 ## 使用场景
 
@@ -287,39 +287,6 @@ if password_strength['feedback']:
 ```
 
 ## 性能优化
-
-### 批量验证优化
-
-```python
-from concurrent.futures import ThreadPoolExecutor
-import time
-
-def batch_verify_passwords(file_path, password_list, max_workers=5):
-    """并行验证多个密码"""
-    
-    def verify_single(password):
-        return {
-            'password': password,
-            'result': verify_pdf_password(file_path, password)
-        }
-    
-    print(f"并行验证 {len(password_list)} 个密码...")
-    start_time = time.time()
-    
-    with ThreadPoolExecutor(max_workers=max_workers) as executor:
-        results = list(executor.map(verify_single, password_list))
-    
-    elapsed = time.time() - start_time
-    print(f"验证完成，耗时: {elapsed:.2f}秒")
-    
-    # 查找正确密码
-    for item in results:
-        result = item['result']
-        if result.get('success') and result.get('password_correct'):
-            return item['password']
-    
-    return None
-```
 
 ## 最佳实践
 

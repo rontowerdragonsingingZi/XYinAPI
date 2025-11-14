@@ -6,7 +6,7 @@ Merge multiple PDF files into a single document.
 
 - **Method**: `POST`
 - **Endpoint**: `/pdf/merge`
-- **Technology**: PyMuPDF
+- **Authorization Header**: API Key (JWT)
 
 ## Request Parameters
 

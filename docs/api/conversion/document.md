@@ -8,7 +8,7 @@
 
 - **请求方式**: `POST`
 - **接口地址**: `/convert`
-- **底层技术**: LibreOffice
+- **Authorization Header**: API Key (JWT)
 
 ### 请求参数
 
@@ -92,7 +92,7 @@ if download_url:
 
 - **请求方式**: `POST`
 - **接口地址**: `/convert/pdf-to-word`
-- **底层技术**: pdf2docx
+- **Authorization Header**: API Key (JWT)
 
 ### 请求参数
 
@@ -162,81 +162,7 @@ if download_url:
 }
 ```
 
-## 高级用法
 
-### 自定义转换过滤器
-
-对于 DOCX 转 PDF，可以使用 `custom_filter` 参数指定 LibreOffice 过滤器：
-
-```bash
-curl -X POST "https://api.xyin.online/convert" \
-  -F "file=@document.docx" \
-  -F "output_format=pdf" \
-  -F "custom_filter=writer_pdf_Export"
-```
-
-常用过滤器选项：
-- `writer_pdf_Export`: 标准 PDF 导出
-- `writer_web_pdf_Export`: 网页优化 PDF
-
-### 批量转换示例
-
-```python
-import os
-import requests
-import time
-
-def batch_convert_to_pdf(input_dir, output_dir):
-    """批量将 DOCX 文件转换为 PDF"""
-    
-    url = "https://api.xyin.online/convert"
-    
-    # 确保输出目录存在
-    os.makedirs(output_dir, exist_ok=True)
-    
-    # 遍历输入目录中的所有 DOCX 文件
-    for filename in os.listdir(input_dir):
-        if filename.lower().endswith('.docx'):
-            input_path = os.path.join(input_dir, filename)
-            
-            print(f"正在转换: {filename}")
-            
-            try:
-                with open(input_path, 'rb') as file:
-                    files = {'file': file}
-                    data = {'output_format': 'pdf'}
-                    
-                    response = requests.post(url, files=files, data=data, timeout=300)
-                    
-                    if response.status_code == 200:
-                        result = response.json()
-                        if result['success']:
-                            # 下载转换后的文件
-                            download_url = result['download_url']
-                            pdf_response = requests.get(f"https://api.xyin.online{download_url}")
-                            
-                            # 保存到输出目录
-                            output_filename = os.path.splitext(filename)[0] + '.pdf'
-                            output_path = os.path.join(output_dir, output_filename)
-                            
-                            with open(output_path, 'wb') as pdf_file:
-                                pdf_file.write(pdf_response.content)
-                            
-                            print(f"✓ 转换完成: {output_filename}")
-                        else:
-                            print(f"✗ 转换失败: {result['error']}")
-                    else:
-                        print(f"✗ 请求失败: {response.status_code}")
-                        
-            except Exception as e:
-                print(f"✗ 处理 {filename} 时出错: {e}")
-            
-            # 避免服务器过载
-            time.sleep(1)
-
-# 使用示例
-batch_convert_to_pdf("./input_docs", "./output_pdfs")
-```
 
 ## 注意事项
 

@@ -6,6 +6,7 @@ Check service health status and LibreOffice version information to ensure API se
 
 - **Method**: `GET`
 - **Endpoint**: `/health`
+- **Authorization Header**: API Key (JWT)
 - **Description**: Quick health check without parameters
 
 ## Request Example

@@ -114,8 +114,7 @@ export default {
               collapsed: true,
               items: [
                 { text: '健康检查', link: '/api/system/health' },
-                { text: '文件下载', link: '/api/system/download' },
-                { text: '清理文件', link: '/api/system/cleanup' }
+                { text: '文件下载', link: '/api/system/download' }
               ]
             }
           ]
@@ -201,8 +200,7 @@ export default {
               collapsed: true,
               items: [
                 { text: 'Health Check', link: '/en/api/system/health' },
-                { text: 'File Download', link: '/en/api/system/download' },
-                { text: 'Cleanup Files', link: '/en/api/system/cleanup' }
+                { text: 'File Download', link: '/en/api/system/download' }
               ]
             }
           ]

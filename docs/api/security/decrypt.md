@@ -6,7 +6,7 @@
 
 - **请求方式**: `POST`
 - **接口地址**: `/pdf/decrypt`
-- **底层技术**: PyMuPDF
+- **Authorization Header**: API Key (JWT)
 
 ## 请求参数
 
@@ -129,52 +129,7 @@ if __name__ == "__main__":
 }
 ```
 
-## 批量解密示例
 
-```python
-def batch_decrypt_pdfs(pdf_files, password, output_dir="./decrypted_batch"):
-    """批量解密 PDF 文件"""
-    
-    results = []
-    
-    for pdf_file in pdf_files:
-        filename = os.path.basename(pdf_file)
-        print(f"\n处理文件: {filename}")
-        
-        try:
-            decrypted_file = decrypt_pdf(pdf_file, password, output_dir)
-            
-            if decrypted_file:
-                results.append({
-                    'file': filename,
-                    'success': True,
-                    'decrypted_file': decrypted_file
-                })
-            else:
-                results.append({
-                    'file': filename,
-                    'success': False,
-                    'error': '解密失败'
-                })
-                
-        except Exception as e:
-            results.append({
-                'file': filename,
-                'success': False,
-                'error': str(e)
-            })
-    
-    # 统计结果
-    success_count = sum(1 for r in results if r['success'])
-    print(f"\n批量解密完成:")
-    print(f"  成功: {success_count}/{len(pdf_files)}")
-    
-    return results
-
-# 使用示例
-pdf_files = ["secure1.pdf", "secure2.pdf", "secure3.pdf"]
-results = batch_decrypt_pdfs(pdf_files, "common_password")
-```
 
 ## 注意事项
 

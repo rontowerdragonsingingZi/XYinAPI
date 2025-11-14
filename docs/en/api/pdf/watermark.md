@@ -6,7 +6,7 @@ Add watermark to PDF documents.
 
 - **Method**: `POST`
 - **Endpoint**: `/pdf/watermark`
-- **Technology**: PyMuPDF
+- **Authorization Header**: API Key (JWT)
 
 ## Request Parameters
 

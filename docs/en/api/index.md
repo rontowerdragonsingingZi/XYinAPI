@@ -10,37 +10,62 @@ LibreOffice Document Conversion API is a powerful document conversion service th
 
 ## 📋 Supported Conversion Types
 
-| Conversion Type | Description | Technology |
-|---------|------|---------|
-| **DOCX → PDF** | Word to PDF | LibreOffice |
-| **PDF → DOCX** | PDF to Word | pdf2docx |
-| **PDF → PNG** | PDF to Images | PyMuPDF |
-| **Word → HD Image** | Word to High-Quality Images | LibreOffice + PyMuPDF |
-| **Image → PDF** | Images to PDF | PyMuPDF |
-| **PDF Page Count** | Get PDF page information | PyMuPDF |
-| **PDF Split** | Split PDF into multiple files | PyMuPDF |
-| **PDF Merge** | Merge multiple PDF files | PyMuPDF |
-| **PDF Extract Text** | Extract text from PDF | PyMuPDF |
-| **PDF Watermark** | Add watermark to PDF | PyMuPDF |
-| **Remove Blank Pages** | Auto-detect and remove blank pages | PyMuPDF |
-| **PDF Encrypt** | Add password protection to PDF | PyMuPDF |
-| **PDF Decrypt** | Remove PDF password protection | PyMuPDF |
+| Conversion Type | Description |
+|---------|------|
+| **DOCX → PDF** | Word to PDF |
+| **PDF → DOCX** | PDF to Word |
+| **PDF → PNG** | PDF to Images |
+| **Word → HD Image** | Word to High-Quality Images |
+| **Image → PDF** | Images to PDF |
+| **PDF Page Count** | Get PDF page information |
+| **PDF Split** | Split PDF into multiple files |
+| **PDF Merge** | Merge multiple PDF files |
+| **PDF Extract Text** | Extract text from PDF |
+| **PDF Watermark** | Add watermark to PDF |
+| **Remove Blank Pages** | Auto-detect and remove blank pages |
+| **PDF Encrypt** | Add password protection to PDF |
+| **PDF Decrypt** | Remove PDF password protection |
 
 ## 🚀 Quick Start
 
-### 1. Basic Request
+### 1. Authentication
 
-All file upload requests use `multipart/form-data` format:
+All API requests require JWT (JSON Web Token) authentication in the HTTP request header.
+
+**Authentication Method**: Add your API Key (JWT Token) to the `Authorization` Header
+
+```http
+Authorization: Bearer YOUR_API_KEY
+```
+
+::: tip Get API Key
+If you don't have an API Key yet, please visit the [Get API Key](/en/apikey) page to apply.
+:::
+
+### 2. Basic Request
+
+All file upload requests use `multipart/form-data` format and must include authentication:
 
 ```http
 POST /convert
+Authorization: Bearer YOUR_API_KEY
 Content-Type: multipart/form-data
 
 file: [file content]
 output_format: pdf
 ```
 
-### 2. Response Format
+**Complete cURL Example**:
+
+```bash
+curl -X POST "https://api.xyin.online/convert" \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: multipart/form-data" \
+  -F "file=@document.docx" \
+  -F "output_format=pdf"
+```
+
+### 3. Response Format
 
 Success response:
 ```json
@@ -64,7 +89,7 @@ Error response:
 }
 ```
 
-### 3. File Download
+### 4. File Download
 
 Use the returned `download_url` to download the converted file:
 

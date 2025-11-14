@@ -6,7 +6,7 @@ Auto-detect and remove blank pages from PDF documents.
 
 - **Method**: `POST`
 - **Endpoint**: `/pdf/remove-blank-pages`
-- **Technology**: PyMuPDF
+- **Authorization Header**: API Key (JWT)
 
 ## Request Parameters
 

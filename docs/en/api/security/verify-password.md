@@ -6,7 +6,7 @@ Verify if a password can decrypt a PDF file without actually decrypting it.
 
 - **Method**: `POST`
 - **Endpoint**: `/pdf/verify-password`
-- **Technology**: PyMuPDF
+- **Authorization Header**: API Key (JWT)
 
 ## Request Parameters
 

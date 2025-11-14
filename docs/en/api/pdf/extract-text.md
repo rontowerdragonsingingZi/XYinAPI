@@ -6,7 +6,7 @@ Extract text content from PDF documents.
 
 - **Method**: `POST`
 - **Endpoint**: `/pdf/extract-text`
-- **Technology**: PyMuPDF
+- **Authorization Header**: API Key (JWT)
 
 ## Request Parameters
 

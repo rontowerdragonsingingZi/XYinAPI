@@ -6,6 +6,7 @@
 
 - **请求方式**: `GET`
 - **接口地址**: `/download/{filename}`
+- **Authorization Header**: API Key (JWT)
 - **说明**: 下载后文件自动清理
 
 ## 路径参数
@@ -157,60 +158,6 @@ Content-Length: 1234567
 **原因**: 文件名包含路径遍历字符（如 `../`），触发安全防护。
 
 ## 高级下载功能
-
-### 批量下载
-
-```python
-def batch_download(download_urls, output_dir="./downloads"):
-    """批量下载文件"""
-    
-    import os
-    from concurrent.futures import ThreadPoolExecutor, as_completed
-    
-    os.makedirs(output_dir, exist_ok=True)
-    
-    def download_single(download_url):
-        filename = download_url.split('/')[-1]
-        local_path = os.path.join(output_dir, filename)
-        
-        result = download_converted_file(download_url, local_path)
-        return {
-            'url': download_url,
-            'success': result is not None,
-            'file': result
-        }
-    
-    results = []
-    
-    # 并行下载
-    with ThreadPoolExecutor(max_workers=5) as executor:
-        futures = [executor.submit(download_single, url) for url in download_urls]
-        
-        for future in as_completed(futures):
-            try:
-                result = future.result()
-                results.append(result)
-            except Exception as e:
-                results.append({
-                    'success': False,
-                    'error': str(e)
-                })
-    
-    # 统计结果
-    success_count = sum(1 for r in results if r.get('success'))
-    print(f"批量下载完成: {success_count}/{len(download_urls)}")
-    
-    return results
-
-# 使用示例
-urls = [
-    "/download/doc1.pdf",
-    "/download/doc2.pdf", 
-    "/download/doc3.pdf"
-]
-
-results = batch_download(urls, "./my_downloads")
-```
 
 ### 断点续传下载
 

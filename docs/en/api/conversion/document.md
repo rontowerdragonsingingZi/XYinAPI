@@ -8,7 +8,7 @@ Convert Microsoft Word documents to PDF format.
 
 - **Request Method**: `POST`
 - **Endpoint**: `/convert`
-- **Technology**: LibreOffice
+- **Authorization Header**: API Key (JWT)
 
 ### Request Parameters
 
@@ -92,7 +92,7 @@ Convert PDF documents to Microsoft Word format.
 
 - **Request Method**: `POST`
 - **Endpoint**: `/convert/pdf-to-word`
-- **Technology**: pdf2docx
+- **Authorization Header**: API Key (JWT)
 
 ### Request Parameters
 

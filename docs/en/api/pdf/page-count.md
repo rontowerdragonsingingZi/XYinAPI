@@ -6,7 +6,7 @@ Get the page count information of a PDF document to quickly understand the docum
 
 - **Method**: `POST`
 - **Endpoint**: `/pdf/page-count`
-- **Technology**: PyMuPDF
+- **Authorization Header**: API Key (JWT)
 
 ## Request Parameters
 

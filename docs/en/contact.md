@@ -53,7 +53,10 @@
 
   <div class="contact-card">
     <div class="card-icon qqmail-icon">
-      <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/tencentqq.svg" alt="QQ Mail" />
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="50" height="50">
+        <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.5 17.5c-.3.3-.7.5-1.2.5H7.7c-.5 0-.9-.2-1.2-.5-.3-.3-.5-.7-.5-1.2V7.7c0-.5.2-.9.5-1.2.3-.3.7-.5 1.2-.5h8.6c.5 0 .9.2 1.2.5.3.3.5.7.5 1.2v8.6c0 .5-.2.9-.5 1.2z" fill="currentColor"/>
+        <path d="M8 9h8v1H8zm0 2h8v1H8zm0 2h5v1H8z" fill="currentColor"/>
+      </svg>
     </div>
     <div class="card-content">
       <h3>QQ Mail</h3>
@@ -234,6 +237,10 @@
 
 .gmail-icon img {
   filter: invert(27%) sepia(98%) saturate(7495%) hue-rotate(359deg) brightness(99%) contrast(118%);
+}
+
+.qqmail-icon svg {
+  color: #1E88E5;
 }
 
 .qqmail-icon img {

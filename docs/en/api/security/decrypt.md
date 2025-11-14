@@ -6,7 +6,7 @@ Remove password protection from PDF files.
 
 - **Method**: `POST`
 - **Endpoint**: `/pdf/decrypt`
-- **Technology**: PyMuPDF
+- **Authorization Header**: API Key (JWT)
 
 ## Request Parameters
 

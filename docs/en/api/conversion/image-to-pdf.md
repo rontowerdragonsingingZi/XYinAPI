@@ -6,7 +6,7 @@ Convert one or more images into a PDF document, supporting multiple common image
 
 - **Method**: `POST`
 - **Endpoint**: `/image/to-pdf`
-- **Technology**: PyMuPDF
+- **Authorization Header**: API Key (JWT)
 
 ## Supported Image Formats
 

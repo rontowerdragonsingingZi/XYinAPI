@@ -6,12 +6,9 @@
 
 - **请求方式**: `POST`
 - **接口地址**: `/word/to-image`
-- **底层技术**: LibreOffice + PyMuPDF
+- **Authorization Header**: API Key (JWT)
 
-## 转换流程
 
-1. **Word → PDF**: 使用 LibreOffice 将 Word 文档转换为 PDF
-2. **PDF → PNG**: 使用 PyMuPDF 将 PDF 的每一页渲染为高清 PNG 图片
 
 ## 请求参数
 
@@ -234,89 +231,9 @@ document.getElementById('fileInput').addEventListener('change', async (event) =>
 }
 ```
 
-## 批量处理示例
-
-```python
-import os
-import requests
-import time
-from concurrent.futures import ThreadPoolExecutor, as_completed
-
-def process_single_document(file_path, dpi=300, output_base_dir="./converted"):
-    """处理单个文档"""
-    filename = os.path.basename(file_path)
-    output_dir = os.path.join(output_base_dir, os.path.splitext(filename)[0])
-    
-    print(f"开始处理: {filename}")
-    
-    try:
-        images = word_to_images(file_path, dpi, output_dir)
-        if images:
-            print(f"✓ {filename} 处理完成，生成 {len(images)} 张图片")
-            return {"file": filename, "success": True, "count": len(images)}
-        else:
-            print(f"✗ {filename} 处理失败")
-            return {"file": filename, "success": False, "error": "转换失败"}
-            
-    except Exception as e:
-        print(f"✗ {filename} 处理出错: {e}")
-        return {"file": filename, "success": False, "error": str(e)}
-
-def batch_word_to_images(input_dir, dpi=300, max_workers=3):
-    """批量转换 Word 文档为图片"""
-    
-    # 查找所有 Word 文档
-    word_files = []
-    for filename in os.listdir(input_dir):
-        if filename.lower().endswith(('.docx', '.doc')):
-            word_files.append(os.path.join(input_dir, filename))
-    
-    if not word_files:
-        print("未找到 Word 文档文件")
-        return []
-    
-    print(f"找到 {len(word_files)} 个 Word 文档，开始批量转换...")
-    
-    results = []
-    
-    # 使用线程池进行并发处理
-    with ThreadPoolExecutor(max_workers=max_workers) as executor:
-        # 提交所有任务
-        future_to_file = {
-            executor.submit(process_single_document, file_path, dpi): file_path
-            for file_path in word_files
-        }
-        
-        # 收集结果
-        for future in as_completed(future_to_file):
-            result = future.result()
-            results.append(result)
-    
-    # 统计结果
-    success_count = sum(1 for r in results if r['success'])
-    total_images = sum(r.get('count', 0) for r in results if r['success'])
-    
-    print(f"\n批量转换完成:")
-    print(f"  成功: {success_count}/{len(word_files)} 个文档")
-    print(f"  总计: {total_images} 张图片")
-    
-    return results
-
-# 使用示例
-if __name__ == "__main__":
-    results = batch_word_to_images("./word_documents", dpi=300, max_workers=2)
-    
-    # 显示详细结果
-    for result in results:
-        if result['success']:
-            print(f"✓ {result['file']}: {result['count']} 张图片")
-        else:
-            print(f"✗ {result['file']}: {result['error']}")
-```
-
 ## 性能优化建议
 
-### 1. DPI 选择策略
+### DPI 选择策略
 
 ```python
 def choose_optimal_dpi(use_case):
@@ -335,23 +252,7 @@ dpi = choose_optimal_dpi("standard_print")
 images = word_to_images("document.docx", dpi=dpi)
 ```
 
-### 2. 文件大小预估
 
-```python
-def estimate_output_size(word_file_size_mb, page_count, dpi):
-    """估算输出图片总大小（MB）"""
-    # 基于经验公式估算
-    base_size_per_page = 0.5  # 基础大小（MB）
-    dpi_factor = (dpi / 300) ** 2  # DPI 影响系数
-    complexity_factor = min(word_file_size_mb / 2, 2)  # 复杂度系数
-    
-    estimated_size = page_count * base_size_per_page * dpi_factor * complexity_factor
-    return round(estimated_size, 2)
-
-# 使用示例
-estimated_mb = estimate_output_size(5, 10, 300)
-print(f"预估输出大小: {estimated_mb} MB")
-```
 
 ## 注意事项
 

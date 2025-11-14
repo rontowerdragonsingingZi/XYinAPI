@@ -6,7 +6,7 @@
 
 - **请求方式**: `POST`
 - **接口地址**: `/pdf/to-png`
-- **底层技术**: PyMuPDF
+- **Authorization Header**: API Key (JWT)
 
 ## 转换设置
 
@@ -106,98 +106,7 @@ if __name__ == "__main__":
             print(f"  {img_path}")
 ```
 
-#### 高级示例：批量转换
 
-```python
-import os
-import glob
-from concurrent.futures import ThreadPoolExecutor, as_completed
-import time
-
-def process_single_pdf(pdf_path, output_base_dir="./converted_images"):
-    """处理单个 PDF 文件"""
-    
-    filename = os.path.basename(pdf_path)
-    name_without_ext = os.path.splitext(filename)[0]
-    output_dir = os.path.join(output_base_dir, name_without_ext)
-    
-    print(f"开始处理: {filename}")
-    start_time = time.time()
-    
-    try:
-        images = pdf_to_png(pdf_path, output_dir)
-        
-        if images:
-            elapsed = time.time() - start_time
-            print(f"✓ {filename} 处理完成 ({elapsed:.2f}s)，生成 {len(images)} 张图片")
-            return {
-                "file": filename,
-                "success": True,
-                "count": len(images),
-                "time": elapsed,
-                "output_dir": output_dir
-            }
-        else:
-            print(f"✗ {filename} 处理失败")
-            return {"file": filename, "success": False, "error": "转换失败"}
-            
-    except Exception as e:
-        print(f"✗ {filename} 处理出错: {e}")
-        return {"file": filename, "success": False, "error": str(e)}
-
-def batch_pdf_to_png(input_dir, output_dir=None, max_workers=3):
-    """批量转换 PDF 为 PNG"""
-    
-    if not output_dir:
-        output_dir = os.path.join(input_dir, "png_output")
-    
-    # 查找所有 PDF 文件
-    pdf_files = glob.glob(os.path.join(input_dir, "*.pdf"))
-    
-    if not pdf_files:
-        print("未找到 PDF 文件")
-        return []
-    
-    print(f"找到 {len(pdf_files)} 个 PDF 文件，开始批量转换...")
-    
-    results = []
-    total_start_time = time.time()
-    
-    # 使用线程池进行并发处理
-    with ThreadPoolExecutor(max_workers=max_workers) as executor:
-        # 提交所有任务
-        future_to_file = {
-            executor.submit(process_single_pdf, pdf_path, output_dir): pdf_path
-            for pdf_path in pdf_files
-        }
-        
-        # 收集结果
-        for future in as_completed(future_to_file):
-            result = future.result()
-            results.append(result)
-    
-    # 统计结果
-    total_elapsed = time.time() - total_start_time
-    success_count = sum(1 for r in results if r['success'])
-    total_images = sum(r.get('count', 0) for r in results if r['success'])
-    
-    print(f"\n批量转换完成 ({total_elapsed:.2f}s):")
-    print(f"  成功: {success_count}/{len(pdf_files)} 个 PDF")
-    print(f"  总计: {total_images} 张图片")
-    
-    return results
-
-# 使用示例
-if __name__ == "__main__":
-    results = batch_pdf_to_png("./pdf_documents", "./png_output", max_workers=2)
-    
-    # 显示详细结果
-    for result in results:
-        if result['success']:
-            print(f"✓ {result['file']}: {result['count']} 张图片 ({result['time']:.2f}s)")
-        else:
-            print(f"✗ {result['file']}: {result['error']}")
-```
 
 ### JavaScript 示例
 
@@ -294,34 +203,6 @@ function setupPdfToPngConverter() {
             convertBtn.textContent = '转换为 PNG';
         }
     });
-}
-
-// 批量下载功能
-async function downloadAllImages(downloadUrls, zipFileName = 'pdf_images.zip') {
-    // 注意：这需要额外的库支持，如 JSZip
-    if (typeof JSZip === 'undefined') {
-        console.warn('需要 JSZip 库来支持批量下载');
-        return;
-    }
-    
-    const zip = new JSZip();
-    
-    for (let i = 0; i < downloadUrls.length; i++) {
-        const url = downloadUrls[i];
-        const response = await fetch(`https://api.xyin.online${url}`);
-        const blob = await response.blob();
-        
-        zip.file(`page_${i + 1}.png`, blob);
-    }
-    
-    const zipBlob = await zip.generateAsync({type: 'blob'});
-    
-    const link = document.createElement('a');
-    link.href = URL.createObjectURL(zipBlob);
-    link.download = zipFileName;
-    link.click();
-    
-    URL.revokeObjectURL(link.href);
 }
 
 // 页面加载完成后初始化

@@ -6,7 +6,7 @@
 
 - **请求方式**: `POST`
 - **接口地址**: `/pdf/encrypt`
-- **底层技术**: PyMuPDF
+- **Authorization Header**: API Key (JWT)
 
 ## 加密功能
 
